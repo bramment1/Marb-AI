@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>MARB AI</title>
+  <link rel="stylesheet" href="ultra.css">
+  <script defer src="sidebar.js"></script>
+</head>
+<body data-theme="dark" data-thinking="false">
+  <header>
+    <div class="logo-wrap" aria-hidden="true">
+      <img class="logo light" src="assets/logo-light.png" alt="MARB AI logo"/>
+      <img class="logo dark"  src="assets/logo-dark.png"  alt="MARB AI logo"/>
+    </div>
+    
+    
+
+    <div class="topbar-actions">
+      <button class="iconbtn" id="themeBtn" title="Light/Dark">Theme</button>
+      <button class="iconbtn warn" id="closeBtn" title="Close sidebar">Close</button>
+    </div>
+    <div id="thinking" aria-live="polite"></div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h3>Project</h3>
+      <div id="projectBar" class="row" style="flex-wrap:wrap">
+        <span class="pill"><strong>Root:</strong> <span id="projectRoot" class="muted">— no folder selected —</span></span>
+        <button class="btn" id="btnChooseExisting">Use existing folder</button>
+        <button class="btn ghost" id="btnCreateNew">Create new folder</button>
+        <label class="pill"><input type="checkbox" id="chkWrite" /> Allow writing</label>
+      </div>
+      <div style="margin-top:8px">
+        <div class="row">
+          <span class="badge">Files in project</span>
+          <button class="btn ghost" id="btnRefreshList">Refresh</button>
+        </div>
+        <pre id="fileList">(nothing yet)</pre>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Step 1 · Idea → Language → Superprompt</h3>
+      <textarea id="idea" placeholder="Type your idea and press Enter..."></textarea>
+      <div class="row">
+        <button class="btn primary" id="languageBtn" title="AI picks best language">Pick best language (AI)</button>
+        <button class="btn" id="makePromptBtn" disabled>Generate superprompt</button>
+        <button class="btn" id="askGptBtn" disabled>Ask ChatGPT for plan</button>
+      </div>
+      <textarea id="langSummary" placeholder="Language + rationale + best practices..."></textarea>
+      <textarea id="superprompt" placeholder="Superprompt..."></textarea>
+    </section>
+
+    <section class="card">
+      <h3>Step 2 · Plan & Files</h3>
+      <input id="search" placeholder="Search files...">
+      <div id="planTree"></div>
+      <div class="row" style="margin-top:8px">
+        <button class="btn primary" id="generateFilesBtn" disabled>Generate files</button>
+        <button class="btn" id="deleteBtnNative">Delete selected</button>
+      </div>
+    </section>
+
+    <section class="card" id="fileView">
+      <h3>Editor <small id="fileName">—</small></h3>
+      <div class="row">
+        <button class="btn" id="toggleDiffBtn">Diff: Split</button>
+        <button class="btn" id="applyEditBtn">Save change (plan)</button>
+      </div>
+      <div id="editorHost"></div>
+      <div id="diffHost" style="display:none"></div>
+    </section>
+
+    <section class="card">
+      <h3>Status</h3>
+      <div id="status">Ready.</div>
+    </section>
+  </main>
+
+  <dialog id="dlgProject">
+    <h3 style="margin-top:0">Choose project</h3>
+    <p class="muted">Pick a working folder. You can change this later.</p>
+    <div class="row" style="margin-top:8px">
+      <button id="dlgUseExisting" class="btn">Existing folder</button>
+      <button id="dlgCreateNew" class="btn ghost">Create new</button>
+      <button id="dlgCancel" class="btn warn">Close</button>
+    </div>
+  </dialog>
+</body>
+</html>
+
+

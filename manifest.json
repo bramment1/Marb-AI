@@ -1,0 +1,62 @@
+﻿{
+    "manifest_version":  3,
+    "name":  "Marb AI 2.0",
+    "version":  "2.0.0",
+    "description":  "Ultra AI sidebar: taalkeuze (top-10), superprompts, plan-\u003efiles, diff, tooltips, thinking dots, native bestandsbeheer.",
+    "permissions":  [
+                        "storage",
+                        "scripting",
+                        "activeTab",
+                        "tabs",
+                        "downloads",
+                        "nativeMessaging",
+                        "windows"
+                    ],
+    "host_permissions":  [
+                             "\u003call_urls\u003e",
+                             "https://chat.openai.com/*"
+                         ],
+    "background":  {
+                       "service_worker":  "background.js"
+                   },
+    "content_scripts":  [
+                            {
+                                "matches":  [
+                                                "\u003call_urls\u003e"
+                                            ],
+                                "js":  [
+                                           "content.js"
+                                       ],
+                                "run_at":  "document_end"
+                            }
+                        ],
+    "commands":  {
+                     "toggle-sidebar":  {
+                                            "suggested_key":  {
+                                                                  "default":  "Ctrl+Shift+X"
+                                                              },
+                                            "description":  "Toon/verberg Marb AI 2.0"
+                                        }
+                 },
+    "web_accessible_resources":  [
+                                     {
+                                         "resources":  [
+                                                           "sidebar.html",
+                                                           "ultra.css",
+                                                           "sidebar.js",
+                                                           "assets/*",
+                                                           "assets/monaco/**",
+                                                           "picker.html",
+                                                           "picker.js"
+                                                       ],
+                                         "matches":  [
+                                                         "\u003call_urls\u003e"
+                                                     ]
+                                     }
+                                 ],
+    "icons":  {
+                  "16":  "assets/icon16.png",
+                  "128":  "assets/icon128.png",
+                  "48":  "assets/icon48.png"
+              }
+}
