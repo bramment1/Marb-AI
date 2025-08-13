@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Local Dev Tool",
+  "version": "0.1.0",
+  "permissions": ["storage"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "src/background.ts"
+  }
+}

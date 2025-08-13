@@ -1,0 +1,3 @@
+node_modules/
+app/native-host/package-lock.json
+app/extension/package-lock.json
