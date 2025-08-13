@@ -38,6 +38,31 @@
                                             "description":  "Toon/verberg Marb AI 2.0"
                                         }
                  },
+    "action":  {
+                   "default_icon":  {
+                                       "16":  "assets/logo-light.png",
+                                       "48":  "assets/logo-light.png",
+                                       "128":  "assets/logo-light.png"
+                                   },
+                   "default_title":  "Marb AI 2.0",
+                   "theme_icons":  [
+                                       {
+                                           "light":  "assets/logo-dark.png",
+                                           "dark":  "assets/logo-light.png",
+                                           "size":  16
+                                       },
+                                       {
+                                           "light":  "assets/logo-dark.png",
+                                           "dark":  "assets/logo-light.png",
+                                           "size":  48
+                                       },
+                                       {
+                                           "light":  "assets/logo-dark.png",
+                                           "dark":  "assets/logo-light.png",
+                                           "size":  128
+                                       }
+                                   ]
+               },
     "web_accessible_resources":  [
                                      {
                                          "resources":  [
@@ -55,8 +80,8 @@
                                      }
                                  ],
     "icons":  {
-                  "16":  "assets/icon16.png",
-                  "128":  "assets/icon128.png",
-                  "48":  "assets/icon48.png"
+                  "16":  "assets/logo-light.png",
+                  "48":  "assets/logo-light.png",
+                  "128":  "assets/logo-light.png"
               }
 }

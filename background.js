@@ -1,4 +1,5 @@
 ﻿chrome.commands.onCommand.addListener((c)=>{ if(c==="toggle-sidebar") toggleActive(); });
+chrome.action.onClicked.addListener(toggleActive);
 async function toggleActive(){ const [tab]=await chrome.tabs.query({active:true,currentWindow:true}); if(!tab?.id) return; trySend(tab.id); }
 function trySend(tabId,attempt=1){
   chrome.tabs.sendMessage(tabId,{type:"TOGGLE_SIDEBAR"}, async ()=>{
